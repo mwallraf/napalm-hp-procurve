@@ -27,6 +27,7 @@ from napalm.base.exceptions import (
     ReplaceConfigException,
     CommandErrorException,
 )
+from napalm.base.netmiko_helpers import netmiko_args
 
 
 class HPProcurveDriver(NetworkDriver):
@@ -165,7 +166,11 @@ class HPProcurveDriver(NetworkDriver):
 
     def get_facts(self):
         """Return a set of facts from the device."""
-        pass
+        facts = {
+                "vendor": "HP",
+                "serial_number": ""
+        }
+        return facts
 
 
 if __name__ == '__main__':
